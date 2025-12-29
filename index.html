@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Pranjal ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bgCanvas"></canvas>
+<div class="hearts"></div>
+<section>
+  <h1>🎆 Happy New Year, Pranjal ❤️</h1>
+  <h2>From Sahil, with all my heart</h2>
+  <p>Countdown to the new year:</p>
+  <div id="countdown"></div>
+  <button onclick="window.location='memories.html'">Start Our Journey →</button>
+</section>
+<script src="script.js"></script>
+<script>
+// Set the target date for the countdown (next Jan 1)
+const countdown = document.getElementById("countdown");
+let nowYear = new Date().getFullYear();
+let nextYear = new Date(`January 1, ${nowYear + 1} 00:00:00`).getTime();
+
+// Update countdown every second
+setInterval(() => {
+    const now = new Date().getTime();
+    const distance = nextYear - now;
+
+    if (distance < 0) {
+        countdown.innerHTML = "🎉 Happy New Year! 🎉";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+}, 1000);
+</script>
+</body>
+</html>

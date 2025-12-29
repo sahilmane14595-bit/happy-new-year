@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Proposal 💍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bgCanvas"></canvas>
+<div class="hearts"></div>
+<section>
+  <h1>💍 Pranjal, Will You Be My Forever?</h1>
+  <button id="yesBtn">YES ❤️</button>
+</section>
+<script src="script.js"></script>
+<script>
+document.getElementById('yesBtn').addEventListener('click',()=>{
+  createConfetti();
+  for(let i=0;i<25;i++){ 
+    const f=document.createElement('div'); 
+    f.className='firework';
+    f.style.left=Math.random()*100+'vw'; 
+    f.style.top=Math.random()*50+'vh'; 
+    document.body.appendChild(f); 
+    setTimeout(()=>f.remove(),1500);
+  }
+  alert("You said YES ❤️💍 I love you forever!");
+  window.location='ending.html';
+});
+</script>
+</body>
+</html>

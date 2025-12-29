@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cheesy Questions ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bgCanvas"></canvas>
+<div class="hearts"></div>
+<section>
+  <h1>😜 10 Cheesy Questions for You</h1>
+  <div id="questions-container"></div>
+  <button onclick="document.getElementById('letterModal').style.display='block'">Read My Letter 💌</button>
+</section>
+
+<!-- Letter popup -->
+<div id="letterModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('letterModal').style.display='none'">&times;</span>
+    <p>
+      My dearest Pranjal,<br><br>
+      From the moment we met at school, you have filled my life with joy and warmth.  
+      These past 3 years as friends and 11 months as lovers have been magical.  
+      Every laugh, every memory, every moment with you is priceless.  
+      I promise I will always be there for you, through everything.  
+      You are my everything, and I love you more than words can say.<br><br>
+      Forever yours,<br>
+      Sahil ❤️
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+// Cheesy questions logic
+const questionsData=[
+"Do you know how deeply I love you?",
+"Will you always be my home?",
+"Can we make every year ours?",
+"Who makes you smile the most?",
+"Do you believe in our forever?",
+"Are we a perfect match?",
+"Will you dance with me in every New Year?",
+"Do you love our little secrets?",
+"Can we grow old together?",
+"Will you always choose me?"
+];
+let questionIndex=0;
+const qContainer=document.getElementById('questions-container');
+function showNextQuestion(){
+  qContainer.innerHTML="";
+  if(questionIndex>=questionsData.length){
+    window.location='proposal.html';
+    return;
+  }
+  const qDiv=document.createElement('div'); qDiv.className='note';
+  qDiv.innerHTML=`${questionsData[questionIndex]}`;
+  const yesBtn=document.createElement('button'); yesBtn.className='answer-btn'; yesBtn.innerText='YES'; yesBtn.onclick=nextQuestion;
+  const noBtn=document.createElement('button'); noBtn.className='answer-btn'; noBtn.innerText='NO'; noBtn.onclick=nextQuestion;
+  qContainer.appendChild(qDiv); qContainer.appendChild(yesBtn); qContainer.appendChild(noBtn);
+}
+function nextQuestion(){ questionIndex++; showNextQuestion(); }
+showNextQuestion();
+</script>
+</body>
+</html>
